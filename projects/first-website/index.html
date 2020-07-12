@@ -2,9 +2,99 @@
 <html>
     <head>
       <title>Kevin's Amazing Website</title>
+      <style>
+    body {
+        background: rgb(192, 192, 192);
+        color: rgb(255, 255, 255);
+        padding: 10px;
+        font-family: arial;
+    }
+    header {
+        font-size: 1.5em;
+        font-weight: bold;
+    }
+    #all-contents {
+        max-width: 800px;
+        margin: auto;
+    }
+
+    /* navigation menu */
+    nav {
+        background: rgb(0, 102, 153);
+        border-radius: 20px;
+        margin: 0 auto;
+        margin-bottom: 20px;
+        padding: 10px;
+    }
+    nav header {
+        display: flex;
+        align-items: center;
+        color: rgb(10, 30, 255);
+        flex: 1;
+    }
+    nav ul {
+        list-style-image: none;
+    }
+    nav li {
+        display: inline-block;
+        padding: 0 10px;
+    }
+    nav a {
+        text-decoration: none;
+        color: #fff;
+    }
+
+    /* main container area beneath menu */
+    main {
+        background: rgb(0, 102, 153);
+        display: flex;
+    }
+    .sidebar {
+        border: 15px solid black;
+        border-radius: 0px;
+        margin-right: 25px;
+        padding: 5px;
+    }
+    .sidebar img {
+        width: 200px;
+    }
+    .content {
+        flex: 1;
+        padding: 15px;
+    }
+    .interests header {
+        font-size: 1.25em;
+    }
+</style>
     </head>
     
     <body>
-      
+          <div id="all-contents"> 
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="portfoloio.html">Portfolio</a></li>
+          </ul>
+        </nav>
+
+        <main>
+          <div class="sidebar">
+      <img src="https://scontent-atl3-1.xx.fbcdn.net/v/t1.0-9/53182993_10213912237065022_3802528550821560320_o.jpg?_nc_cat=109&_nc_sid=84a396&_nc_ohc=lteI4x98JVcAX8ubnXA&_nc_ht=scontent-atl3-1.xx&oh=35694243bdc9a3c2bb014a7c2002c1b4&oe=5F2FC6C3">
+          </div>
+
+          <div class="content">
+            <header>Kevin Robida</header>
+            <p>Student at Operation Spark</p>
+              <section class="interests">
+                  <header>Interests</header>
+                  <ul>
+                    <li>Disc Golf</li>
+                    <li>Cooking</li>
+                    <li>Gardening</li>
+                  </ul>
+              </section>
+          </div>
+        </main>
+    </div>
     </body>
 </html>
