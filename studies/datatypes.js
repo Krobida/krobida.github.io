@@ -2,8 +2,8 @@
  * DATATYPES:
  *
  * 0. Datatypes are values that allows us to operate on variables. They categorize the different
- * types of data in Javascript. Datatypes are useful because it allows computers to know how to deal
- * with the information and instructions given by the programmer.
+ * types of data in Javascript. Datatypes are useful because it allows computers to know how to 
+ * deal with the information and instructions given by the programmer.
  *
  * 1. There are 9 different datatypes in Javascript that are broken down into two categories:
  * Simple/Primitive: Number, String, Boolean, NaN, undefined, null and Complex: Object, Array,
@@ -50,8 +50,8 @@ This tells us that the variable does not exist */
 var isUndefined; // prints => undefined inUndefined doesn't exist
 
 // 8. null
-/*null is a datatype that expresses an intentional lack of a value. The difference between undefined
-and null is that when a variable is assigned to null it DOES exist */
+/*null is a datatype that expresses an intentional lack of a value. The difference between
+* undefined and null is that when a variable is assigned to null it DOES exist */
 var isNull = null; // prints => null
 //Another good example of the use of null is when logging into a webpage
 //User logs into webpage...
@@ -59,30 +59,31 @@ var isSignedIn = true;
 //User logs out of webpage...
 var isSignedIn = null;
 
-// 9. NaN
-// This datatype translates to Not a Number which determines whether the value is a legal number or not
+// 9. NaN (Not a Number)
+// This datatype translates to NaN determines whether the value is a legal number or not
 var a = "hello"; //this is Not a Number
 isNaN(a); // => this tests whether a given property is NaN in this case it prints => false
 
 // 10. Infinity and -Infinity
-/* Infinity and -Infinity are a global variable that shows a mathematical infinity or negative infinity
-There is no number greater than Infinity and there is no number less than -Infinity */
+/* Infinity and -Infinity are a global variable that shows a mathematical infinity or 
+* negative infinity There is no number greater than Infinity and there is no number
+* less than -Infinity */
 Infinity > 46345634525346; //prints => true
 -Infinity < 32352523435234234; //prints => false
 
 /* 11. Primitive/simple data types vs complex data types
 *
-* A primitive/simple data type are the most basic of data types which include numbers, strings, boolean
-* null and undefined. These data types require very little information in order to store its value to
-* memory. Primitive data types are immutable which means they can only ever return other primitive
-* values and are copied by values.
+* A primitive/simple data type are the most basic of data types which include numbers,
+* strings, boolean null and undefined. These data types require very little information 
+* in order to store its value to memory. Primitive data types are immutable which means
+* they can only ever return other primitive values and are copied by values.
 *
-* A complex data type hold a larger set of data which can hold a variety of different datatypes. Arrays
-* Objects, and Functions are considered complex. Compelex data types are copied by reference and can have
-* an indefinite size. */
+* A complex data type hold a larger set of data which can hold a variety of different datatypes.
+* Arrays, Objects, and Functions are considered complex. Compelex data types are copied by 
+* reference and can have an indefinite size. */
 
-/* 12. Primitive data types are copied by value which means when changing the value of one it won't 
-* effect what is stored in the outcome.  */
+/* 12. Primitive data types are copied by value which means when changing the value of one
+it won't effect what is stored in the outcome.  */
 //EXAMPLE
 var a = 5;
 var b = "kevin"
