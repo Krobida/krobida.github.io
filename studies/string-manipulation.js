@@ -38,3 +38,44 @@ console.log(isFirstName); // output: false
 
 // String.indexOf() // This method finds which posistion the input is in said string
 //EXAMPLE: 
+var myClass = "Bootcamp at operation spark"
+console.log(myClass.indexOf("operation spark")) // output: 12;
+ 
+// String.substring() // will show only part of the string based on inputs
+//EXAMPLE:
+var myClass = "Bootcamp at operation spark"
+console.log(myClass.substring(12, 27)) // only shows the string from index 12 to 27 output: "operation spark"
+ 
+// String.toLowerCase() & String.toUpperCase() // will force the string to either of the cases
+//EXAMPLE:
+var myClass = "Bootcamp at Operation Spark"
+console.log(myClass.toLowerCase()) // outputs "bootcamp at operation spark"
+console.log(myClass.toUpperCase()) // outputs "BOOTCAMP AT OPERATION SPARK"
+
+// String.replace() // will find a piece of a string and replace it with a different value
+//EXAMPLE:
+var myClass = "Bootcamp at Operation Spark"
+console.log(myClass.replace("Operation", "Camp")) // outputs: "Bootcamp at Camp Spark"
+
+// String.toString() // - Changes the value of a variable and turns it into a string
+//EXAMPLE:
+var aNumber = 123;
+console.log(aNumber.toString()) // outputs: "123" as a string
+
+// String.split()  // - Used to split a string into an array of substrings
+// Must put where you want the string to be split at inside the parameter
+// Where you split will also be deleted
+//EXAMPLE:
+var myClass = "Bootcamp at operation spark"
+//Split the string where there is a space by using " "
+console.log(myClass.split(" ")) // outputs: [Bootcamp, at, operation, spark]
+
+// String.trim() // - Used to trim whitespace out of the beginning and end of a string
+//EXAMPLE:
+var myClass = "             Bootcamp at operation spark             "
+console.log(myClass.trim()) // outputs: "Bootcamp at operation spark"
+
+// String.charAt() //  - Used to find a character at a specific index of a string
+//EXAMPLE:
+var myClass = "Bootcamp at operation spark"
+console.log(myClass.charAt(7)) // output: p
