@@ -110,10 +110,10 @@ if (20 !== 20 || 30 !== 30)//output is false because they both equal eachother
 * (refer to increment/decrement and use of ! above..), typeof (typeOf), and delete
 * (when deleting value from an array or an object)*/
 
-// EXAMPLE: Use of delete:
+/* EXAMPLE: Use of delete:
 var deleteExample = ["delete", "this"]
 delete deleteExample[1] //deletes the value at index 1 of this array
-console.log(deleteExample) // prints => ["delete", undefined]
+console.log(deleteExample) // prints => ["delete", undefined] */
 
 // Use of typeof:
 var typeOf = true;

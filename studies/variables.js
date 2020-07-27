@@ -70,7 +70,7 @@ console.log(z); // output: 1 x is changed only within the block scope
 /* const const delcares a code scoped variable with a constant value, 
 * it cannot be changed or be reinitalized. It's like a read-only file on a computer. */
 
-//EXAMPLE:
+/*EXAMPLE:
 const y = 1;
 
 if (y === 1) {
@@ -79,7 +79,7 @@ if (y === 1) {
   console.log(y); // Output results in a TypeError: Assignment to constant variable
 }
 
-console.log(x);
+console.log(x); */
 
 /* Hoisting - this is the main difference between var vs let and const
 * var is javascripts default behavior in moving declarations to the top

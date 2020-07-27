@@ -45,7 +45,7 @@ if (time > 0 && time < 11) { // checks if time is between 0 and 11
 /* 4. Switch // similar to if else statements switch statements will perform different
 * actions based on different conditions but with different syntax */
 EXAMPLE:
-var favoriteAnimal = prompt // prompts the user to type their facorite animal
+var favoriteAnimal = 'dog' //prompt // prompts the user to type their facorite animal
 
 switch(favoriteAnimal) {
     case 'dog':
