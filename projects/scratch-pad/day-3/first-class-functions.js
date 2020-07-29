@@ -106,7 +106,7 @@ function modifyStrings(strings, modify) {
     //create a for loop to pass through each string
     for (var i = 0; i < strings.length; i++) {
     //modify the strings that went through the for loop and assign strings to it
-        strings = modify(strings[i]);
+        strings[i] = modify(strings[i]);
     //return the newly modified
     } return strings;
     
