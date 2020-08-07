@@ -1,0 +1,68 @@
+
+////////////////////////////////////////////////////////////////////////////////
+// triangles ///////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+function triangles(num) {
+let result = ""
+ for (let i = 0; i < num; i++) {
+   console.log(result += "#");
+ }
+
+}
+////////////////////////////////////////////////////////////////////////////////
+// fizzBuzz ////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+function fizzBuzz(start, end) {
+  for (let i = start; i <= end; i++) {
+    if (i % 3 === 0 && i % 5 === 0) {
+    console.log("fizzbuzz")
+  } else if (i % 3 === 0) {
+    console.log("fizz") 
+  } else if (i % 5 === 0) {
+    console.log("buzz")
+  } else {
+    console.log(i)
+  }
+}
+}
+
+
+////////////////////////////////////////////////////////////////////////////////
+// drawChessboard //////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+function drawChessboard(num) {
+//Create an empty string that will represent the chessboard
+  let chessBoard = ""
+//Create a nested for loop that will go through an inner and outer loop
+//outerloop represents the rows
+    for (let i = 0; i < num; i++) {
+//inner loop represents the columns
+      for (let j = 0; j < num; j++) {
+//if the sum of the two counters are even
+        if ((j + i) % 2 == 0) 
+//put a space in the chessBoard string
+          chessBoard += " "
+//or else put a # in the chessBoard string
+          else 
+          chessBoard += "#"
+//once the innder loop hits the target of zero, put a break in the line
+        }chessBoard += "\n"
+//log the finished product when outerloop finishes
+      }console.log(chessBoard)
+    }
+
+////////////////////////////////////////////////////////////////////////////////
+// DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////
+
+if ((typeof process !== 'undefined') &&
+  (typeof process.versions.node !== 'undefined')) {
+  module.exports = {
+    triangles,
+    fizzBuzz,
+    drawChessboard,
+  };
+}
