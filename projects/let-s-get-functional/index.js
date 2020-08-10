@@ -24,28 +24,21 @@ var _ = require("lodown-krobida");
 var maleCount = function(array) {
     //must see the filter function to filter out the male customers
     //output must be a number
-    return _.filter(array, function(customer) {
-        //return a condition that resolves to be true or false based on the argument
-        //test if customer object has a gender prop of male
-        return customer.gender === "male";
-    }).length
+    return _.filter(array, customer => customer.gender === "male").length
 };
 
 var femaleCount = function(array) {
 //must see the reduce function to find the number of female customers
 //output must be a number USE 0 as the seed to make sure it's output is a number
-    return _.reduce(array, function(accumulator, customer, seed) {
+    return _.reduce(array, (accumulator, customer, seed) => {
         return accumulator + (customer.gender === "female");
 }, 0);
 };
 
 var oldestCustomer = function(array) {
-//find the oldest customer's name
-//input: array of customers
-//output: string of oldest customer's name
 //use reduce to compare ages of customers
 //reduce goes through all in array
-    return _.reduce(array, function(oldest, nextPerson) {
+    return _.reduce(array, (oldest, nextPerson) => {
 //if nextPerson is older than oldest
         if (nextPerson.age > oldest.age) {
 //return nextPerson (who is now oldest)
@@ -92,9 +85,13 @@ return totalBal / array.length
 }
 
 var firstLetterCount = function(array, letter){
-    return _.reduce(array, function(letterCounter, nextName) {
+//use reduce to iterate and compare the first letter in our customers name with the letter given
+    return _.reduce(array, (letterCounter, nextName) => {
+//if the first letter in our customers name is equal to the letter given CASE SENSITIVE
         if (nextName.name[0].toLowerCase() === letter.toLowerCase()) {
+//add one to letterCounter
              letterCounter++
+//return the number of names that start with that letter
         } return letterCounter
     }, 0) 
     
@@ -103,29 +100,67 @@ var firstLetterCount = function(array, letter){
 var friendFirstLetterCount = function(array, customer, letter) {
 //Use the above function but on friends of the customers
 //filter through out customers array and set their names to their own array
-    let cust = _.filter(array, function(person) {
-        return person.name === customer;
-})[0];
+    let cust = _.filter(array, person => person.name === customer)[0];
+//return our firstLetterCount function with our customers friends as the array parameter
     return firstLetterCount(cust.friends, letter);
 };
 
 var friendsCount = function(array, name) {
-//Set isFriendsWith variable to a function that will test the truthiness on if our
-//customers are friends with a specific person
-    let friendsWith = _.filter(array, function(person) {
-//return isFriendsWith to an array that contains a 'plucked' value from a name property
-        return _.contains(_.pluck(person.friends, 'name'), name);
-    });
-//return the pluck function by looping through our new isFriendsWith array searching through their 
-//'name' property
-    return _.pluck(friendsWith, 'name')
+//create an empty array where our friends result goes
+let friendsWith = []
+//loop through the array of customers
+for (let i = 0; i < array.length; i++) {
+//loop through each customers FRIENDS object using a nested for loop
+ for (let j = 0; j <array[i].friends.length; j++) {
+//if the friends name for each friends index equals the name given
+  if (array[i].friends[j].name === name) 
+//push that name into the array given
+    friendsWith.push(array[i].name);
+  }
+}return friendsWith
 }
 
 
 
-var topThreeTags;
+var topThreeTags = function(array){
+let tagsArray = []
+    for (let i = 0; i < array.length; i++) {
+        tagsArray.push(array[i].tags)
+}
+let merge = ([].concat.apply([], tagsArray));
+let tallyTags = merge.reduce((tally, val) => {
+    tally[val] = (tally[val] || 0) +1;
+        return tally;
+}, {}) 
+var sortable = [];
+for (var key in tallyTags){
+    sortable.push([key, tallyTags[key]]);
+};
+sortable.sort(function(a, b) {
+    return b[1] - a[1];
+});
+sortable = _.first(sortable,3)
+    return _.map(sortable, tags => tags[0])
+}
 
-var genderCount;
+
+var genderCount = function(array) {
+//use reduce to iterate through all of our genders, starting seed should be an empty object
+    return _.reduce(array, (total, customer) => {
+//for every customers gender found true
+    if (total[customer.gender]){
+//add a count to the gender found
+        total[customer.gender]++;
+    } else{
+//if not set it to 1
+      total[customer.gender] = 1
+    }  
+//return the total
+    return total
+  }, {});
+};
+
+
 
 //////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE ////////////////////////////////////////////
