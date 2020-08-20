@@ -365,8 +365,8 @@ _.pluck = function(arrayOfObj, prop) {
    let plucked =  []
 //call the map object which loops through our arrayOfObj and call an action on them
     _.map(arrayOfObj,  function(elements, index, array) {
-//use .push to pull out the property value of each index in our object and put them in our empty array
-        plucked.push(array[index][prop])
+//use .push to pull out the property value of each element in our object and put them in our empty array
+        plucked.push(elements[prop])
     })
 //return the plucked properties values
     return plucked
@@ -405,7 +405,7 @@ _.every = function(collection, action) {
 //return false
             trueOrFalse = false;
 //else if element is FALSY
-        } else if (element === false) {
+        } else if (!element) {
 //return false
             trueOrFalse = false;
         }
@@ -444,7 +444,7 @@ _.some = function(collection, action) {
 //return true
             trueOrFalse = true;
 //else if at least one element is TRUTHY
-        } else if (element === true) {
+        } else if (element) {
 //return true
             trueOrFalse = true;
         }

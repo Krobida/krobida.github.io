@@ -320,7 +320,6 @@ describe('Eloquent JavaScript', function () {
       it("should compare two objects with identical nested arrays", function () {
         expect(deepEqual({
           test: {
-            test2: [1, 2, 3]
           }
         }, {
           test: {

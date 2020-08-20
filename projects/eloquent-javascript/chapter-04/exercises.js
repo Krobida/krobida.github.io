@@ -70,15 +70,34 @@ function reverseArrayInPlace(arr) {
 // arrayToList /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function arrayToList() {
-
+function arrayToList(array) {
+//set a new object to null
+let list = null;
+//iterate through the array backwards
+for (let i = array.length - 1; i >= 0; i--) {
+//assign the index in the array to a new key called value, and set the rest key to our list for each iteration
+  list = {
+    value: array[i],
+    rest: list
+  }
+//return the list
+}return list
 }
 
 ////////////////////////////////////////////////////////////////////////////////
 // listToArray /////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
-
-function listToArray() {
+//NODE IS REFEREING TO EACH OBJECT IN OUR LIST
+//this is taking a list of nested objects and pushing their values into an array
+function listToArray(object) {
+//set an empty array where our nested objects values will go
+  let array = [];
+//iterate after every object and push its value into our array as long as a list still exists
+//after every loop it accesses the next nested object or 'rest'
+ for (let node = object; node; node = node.rest) {
+    array.push(node.value)
+//return our array
+  }return array;
 
 }
 
@@ -86,26 +105,57 @@ function listToArray() {
 // prepend /////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function prepend() {
-
+function prepend(value, list) {
+//make sure our list is an array by setting it to a variable and calling out listToArray function on it
+  let node = listToArray(list)
+//add our value to the beginning of the list using unshift
+  node.unshift(value);
+//turn our array into a list
+  node = arrayToList(node)
+//return that list
+  return node;
 }
-
 ////////////////////////////////////////////////////////////////////////////////
 // nth /////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function nth() {
-
+function nth(list, num) {
+//if list is null
+  if (!list) {
+//return undefined
+    return undefined;
+//else if num is equal to 0
+  }else if (num === 0) {
+//return the value of list
+    return list.value
+//else return the recurssed list.rest subtracting one each time
+  } return nth(list.rest, num - 1)
+  
 }
+
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // deepEqual ///////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-function deepEqual() {
-
+function deepEqual(a, b) {
+//if a, and b are objects and dont equal 'null'
+ if(a !== null && b !== null && typeof a === 'object' && typeof b === 'object') {
+//then loop through the properties in object a
+   for(let prop in a) {
+//if there is no properties in b OR properties on a arent equal to the properties in b
+      if (!(prop in b) || !deepEqual(a[prop], b[prop]))
+//return false
+        return false;
+    }
+//else return true
+    return true;
+//if a and be are not objects test to see if they're equal and return the value
+  } else {
+    return a === b;
+  }
 }
-
 ////////////////////////////////////////////////////////////////////////////////
 // DON'T REMOVE THIS CODE //////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////

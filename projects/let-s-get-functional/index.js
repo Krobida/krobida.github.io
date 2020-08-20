@@ -123,23 +123,32 @@ for (let i = 0; i < array.length; i++) {
 
 
 var topThreeTags = function(array){
+//create an empty array for all of our tags to go
 let tagsArray = []
+//loop through our array to pull all of the tags out and put them into our tagsArray
     for (let i = 0; i < array.length; i++) {
         tagsArray.push(array[i].tags)
 }
+//concat all of our tags into a single array
 let merge = ([].concat.apply([], tagsArray));
+//use reduce to create a count of each tag in a new object called tallyTags
 let tallyTags = merge.reduce((tally, val) => {
     tally[val] = (tally[val] || 0) +1;
         return tally;
 }, {}) 
+//create a new variable called sortable where our sorted tags will go
 var sortable = [];
+//loop through our tallied tags and push them into an our array
 for (var key in tallyTags){
     sortable.push([key, tallyTags[key]]);
 };
+//sort our tags from highest to lowest using .sort()
 sortable.sort(function(a, b) {
     return b[1] - a[1];
 });
+// use first and map to pull out the first three tags in sortable
 sortable = _.first(sortable,3)
+//map will give us just the tags themselves
     return _.map(sortable, tags => tags[0])
 }
 
